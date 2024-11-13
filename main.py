@@ -2,8 +2,8 @@ import numpy as np
 
 class Dataset:
     def __init__(self):
-        self.advertising = [23, 26, 30, 34, 43, 48, 52, 57, 58]
-        self.sales = [651, 762, 856, 1063, 1190, 1298, 1421, 1440, 1518]
+        self.advertising = [1,2,3,4,5,6,7,8,9]
+        self.sales = [2,4,6,8,10,12,14,16,18]
 
     def get_data_adv(self):
         return self.advertising
@@ -32,17 +32,19 @@ def main():
     beta_1 = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squ - sum_x ** 2)
     beta_0 = (sum_y - beta_1 * sum_x) / n
 
-    print(f"Ecuación de regresión: Sales = {beta_1} * Advertising + {beta_0}")
-
     # Bucle para predicciones
     while True:
-        rest = int(input("¿Deseas ingresar un valor a predecir? 1 = sí, 2 = no: "))
+        print("************************")
+        print(f"Ecuación de regresión: Sales = {beta_1} * Advertising + {beta_0}")
+        print("1 - Ingresar nuevo valor")
+        print("2 - Salir")
+        rest = int(input("Opcion: "))
         if rest == 2:
             break
         elif rest == 1:
-            vAd = float(input("Ingrese el valor de Advertising para predecir las ventas: "))
+            vAd = float(input("Ingrese el valor predecir las ventas: "))
             solucion = predict(beta_1, beta_0, vAd)
-            print(f"Predicción de Sales para Advertising de {vAd} millones: {solucion} millones")
+            print(f"Predicción de Sales para Advertising: {solucion} millones")
         else :
             print("Entrada no válida.")
 
